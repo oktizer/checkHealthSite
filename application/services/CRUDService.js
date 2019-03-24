@@ -1,7 +1,3 @@
-/**
- * Created by rakhmatullahyoga on 28/07/17.
- */
-
 'use strict';
 
 module.exports = function (TOOLS, MODULES, CONSTANTS) {
@@ -39,7 +35,7 @@ module.exports = function (TOOLS, MODULES, CONSTANTS) {
 
         updateCustom: function (schemaName, where, attributes) {
             return new Promise((resolve, reject) => {
-                schema[schemaName].findOneAndUpdate(where, {$set: attributes}, {new: false}, (err, result) => {
+                schema[schemaName].findOneAndUpdate(where, {$set: attributes}, {new: true}, (err, result) => {
                     if (err) {
                         let errorRes = {
                             code: 500,

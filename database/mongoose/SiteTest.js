@@ -7,11 +7,11 @@ module.exports = function (MODULES) {
     let mongoose = MODULES.MONGOOSE;
     let Schema = mongoose.Schema;
 
-    let siteSchema = new Schema({
+    let siteTestSchema = new Schema({
         url: {type: String, required: true},
         status: {type: Boolean}
     }, {timestamps: {}});
 
     // define your plugin here, see examples below
-    return siteSchema;
+    return siteTestSchema;
 };

@@ -1,7 +1,3 @@
-/**
- * Created by rakhmatullahyoga on 11/07/17.
- */
-
 'use strict';
 
 module.exports = function (TOOLS, MODULES, CONSTANTS) {
@@ -52,13 +48,13 @@ module.exports = function (TOOLS, MODULES, CONSTANTS) {
                     crudService.getAll(params.schema, params.where, params.select, (err, result) => {
                         let resultData;
                         if (err) {
-                            resultData = {code: 500, status: 'Failed', message: 'Gagal mendapatkan data ' + params.schema, err: err.message};
+                            resultData = {code: 500, status: 'Failed', message: 'Failed get data ' + params.schema, err: err.message};
                             logger.error(resultData);
                             reject(resultData);
                         } else {
-                            resultData = { code: 200, message: 'Berhasil mendapatkan data ' + params.schema };
+                            resultData = { code: 200, message: 'Successfully get data ' + params.schema };
                             logger.info(resultData);
-                            resolve(result);
+                            resolve({code: 200, message: 'Successfully get data ' + params.schema, result: result});
                         }
                     });
                     break;
@@ -70,9 +66,9 @@ module.exports = function (TOOLS, MODULES, CONSTANTS) {
                             logger.error(resultData);
                             reject(resultData);
                         } else {
-                            resultData = { code: 200, message: ' Succesfully deleted data ' + params.schema };
+                            resultData = { code: 200, message: 'Succesfully deleted data ' + params.schema };
                             logger.info(resultData);
-                            resolve(result);
+                            resolve({ code: 200, message: 'Succesfully deleted data ' + params.schema, result: result });
                         }
                     });
                     break;

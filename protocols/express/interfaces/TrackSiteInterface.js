@@ -1,5 +1,5 @@
 /**
- * Created by rakhmatullahyoga on 17/08/17.
+ * Created by rizkinovrizal on 17/08/17.
  */
 
 'use strict';
@@ -21,7 +21,7 @@ module.exports = function (TOOLS, MODULES, CONSTANTS) {
         getListURLSite: async function (previousData, req, res, next) {
             try {
                 let result = await crudController.crudCheckController({value: null, method: 'GET', schema: 'Site'});
-                next(null, {listUrl: result});
+                next(null, {listUrl: result.result});
             } catch (err) {
                 return next(err, null);
             }

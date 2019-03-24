@@ -1,4 +1,3 @@
-
 const chai = require('chai');
 let crudService;
 let should = chai.should();
@@ -11,7 +10,7 @@ describe('Service: CRUDService', function () {
 
     describe('Create New Data', function () {
         it('should response new object after save data', function (done) {
-            crudService.createNewCustom('site', {url: 'https://www.google.com', status: true}, function (err, result) {
+            crudService.createNewCustom('SiteTest', {url: 'https://www.google.com', status: true}, function (err, result) {
                 should.not.exist(err);
                 should.exist(result);
                 result.should.be.an('object');
@@ -24,42 +23,38 @@ describe('Service: CRUDService', function () {
         });
     });
 
-    // describe('Get all data', function () {
-    //     it('should response all list data', function (done) {
-    //         crudService.getAll('site', null, null, function (err, result) {
-    //             should.not.exist(err);
-    //             should.exist(result);
-    //             result.should.be.an('array');
-    //             done();
-    //         });
-    //     });
-    // });
+    describe('Get all data', function () {
+        it('should response all list data', function (done) {
+            crudService.getAll('SiteTest', null, null, function (err, result) {
+                should.not.exist(err);
+                should.exist(result);
+                result.should.be.an('array');
+                done();
+            });
+        });
+    });
 
-    // describe('Update existing data', function () {
-    //     it('should response new value in field which update before', function (done) {
-    //         crudService.updateCustom('site', {url: 'https://www.google.com'}, {$set: {status: false}}, function (err, result) {
-    //             should.not.exist(err);
-    //             should.exist(result);
-    //             result.should.be.an('object');
-    //             result.url.should.be.a('string');
-    //             result.url.should.equal('https://www.google.com');
-    //             result.status.should.be.a('boolean');
-    //             result.status.should.equal(false);
-    //             done();
-    //         });
-    //     });
-    // });
+    describe('Update existing data', function () {
+        it('should response new value in field which update before', async () => {
+            const result = await crudService.updateCustom('SiteTest', {url: 'https://www.google.com'}, {status: false});
+            should.exist(result.result);
+            result.code.should.equal(200);
+            result.result.should.be.an('object');
+            result.result.url.should.be.a('string');
+            result.result.url.should.equal('https://www.google.com');
+            result.result.status.should.be.a('boolean');
+            result.result.status.should.equal(false);
+        });
+    });
 
-    // describe('Delete existing data', function () {
-    //     it('should response object has been deleted', function (done) {
-    //         crudService.findOneCustomAndDelete('site', {_id: '5c96fc551da0a5184734c34c'}, function (err, result) {
-    //             should.not.exist(err);
-    //             should.exist(result);
-    //             result.should.be.an('object');
-    //             result.ok.should.be.a('integer');
-    //             result.ok.should.equal(1);
-    //             done();
-    //         });
-    //     });
-    // });
+    describe('Delete existing data', function () {
+        it('should response object has been deleted', function (done) {
+            crudService.findOneCustomAndDelete('SiteTest', {_id: '5c9792ff42b0a51ceb02748d'}, function (err, result) {
+                should.not.exist(err);
+                should.exist(result);
+                result.should.be.an('object');
+                done();
+            });
+        });
+    });
 });
