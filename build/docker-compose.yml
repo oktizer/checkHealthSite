@@ -3,13 +3,14 @@ services:
   web:
     build: ../
     ports:
-     - "${APP_PORT}:3000"
+     - "${APP_PORT}:${APP_PORT}"
     links:
       - mongodb
     restart: always
     environment:
       - MONGO_URL=mongodb://mongodb:${MONGO_PORT}/${MONGO_DB}
     env_file:
+      - configuration
       - ../environment_variables.env
   mongodb:
     image: "mongo"

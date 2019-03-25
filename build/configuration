@@ -1,5 +1,8 @@
 ##### EDITABLE but do not delete below configuration, unless you know the consequences ###
 
-export APP_NAME=api-role
-export APP_PORT=3000
+export NODE_ENV=production
+export APP_NAME=api-checkUrlSite
+export APP_PORT=3958
+
 export MONGO_PORT=41958
+export MONGO_DB=db-checkurlsite
