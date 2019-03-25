@@ -6,3 +6,4 @@ export APP_PORT=3958
 
 export MONGO_PORT=41958
 export MONGO_DB=db-checkurlsite
+export MONGO_URL=mongodb://localhost:41958/db-checkurlsite
