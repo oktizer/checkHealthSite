@@ -1,8 +1,6 @@
-# API Role Management #
-
 ### What is this? ###
 
-* Role management service API for web & mobile apps
+* Node Starter customized from Express Js
 
 ### How do I get set up? ###
 
@@ -53,4 +51,4 @@
 
 ### Who do I talk to? ###
 
-&copy; [Rakhmatullah Yoga Sutrisna](https://source.gits.id/rizkinovrizal) - [PT GITS Indonesia](https://gits.co.id) 2017
+&copy;[PT GITS Indonesia](https://gits.co.id) 2017
