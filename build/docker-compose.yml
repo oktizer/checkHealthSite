@@ -5,13 +5,11 @@ services:
     ports:
      - "${APP_PORT}:3000"
     links:
-      - redis
       - mongodb
     restart: always
     environment:
       - MONGO_URL=mongodb://mongodb:${MONGO_PORT}/${MONGO_DB}
     env_file:
-      - configuration
       - ../environment_variables.env
   mongodb:
     image: "mongo"
