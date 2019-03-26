@@ -1,8 +1,6 @@
 describe('Initiate application', function () {
     it('Setup controllers, services and express server as global variables', function (done) {
-        if (process.env.NODE_ENV !== 'production') {
-            require('dotenv').config();
-        }
+        // require('dotenv').load();
         // mute logger
         console.time = function () { };
         console.timeEnd = function () { };
