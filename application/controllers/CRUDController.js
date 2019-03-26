@@ -2,7 +2,6 @@
 
 module.exports = function (TOOLS, MODULES, CONSTANTS) {
     let crudService = TOOLS.SERVICES.CRUDService;
-    let logger = TOOLS.LOG;
     let joi = MODULES.JOI;
     let axios = MODULES.AXIOS;
     return {
@@ -20,11 +19,11 @@ module.exports = function (TOOLS, MODULES, CONSTANTS) {
                         let resultData;
                         if (err) {
                             resultData = {code: 500, status: 'Failed', message: 'Failed Save Data ' + params.schema, err: err.message};
-                            logger.error(resultData);
+
                             reject(resultData);
                         } else {
                             resultData = {code: 200, message: 'Successfully saving ' + params.schema + ' data'};
-                            logger.info({code: 200, message: 'Successfully saving' + params.schema + ' data'});
+
                             resolve(resultData);
                         }
                     });
@@ -35,11 +34,11 @@ module.exports = function (TOOLS, MODULES, CONSTANTS) {
                         let resultData;
                         if (err) {
                             resultData = {code: 500, status: 'Failed', message: 'Failed Update Data ' + params.schema, err: err.message};
-                            logger.error(resultData);
+
                             reject(resultData);
                         } else {
                             resultData = {code: 200, message: 'Successfully update ' + params.schema + ' data'};
-                            logger.info({code: 200, message: 'Successfully update ' + params.schema + ' data'});
+
                             resolve(resultData);
                         }
                     });
@@ -49,11 +48,10 @@ module.exports = function (TOOLS, MODULES, CONSTANTS) {
                         let resultData;
                         if (err) {
                             resultData = {code: 500, status: 'Failed', message: 'Failed get data ' + params.schema, err: err.message};
-                            logger.error(resultData);
                             reject(resultData);
                         } else {
                             resultData = { code: 200, message: 'Successfully get data ' + params.schema };
-                            logger.info(resultData);
+
                             resolve({code: 200, message: 'Successfully get data ' + params.schema, result: result});
                         }
                     });
@@ -63,11 +61,11 @@ module.exports = function (TOOLS, MODULES, CONSTANTS) {
                         let resultData;
                         if (err) {
                             resultData = {code: 500, status: 'Failed', message: 'Failed delete data ' + params.schema, err: err.message};
-                            logger.error(resultData);
+
                             reject(resultData);
                         } else {
                             resultData = { code: 200, message: 'Succesfully deleted data ' + params.schema };
-                            logger.info(resultData);
+
                             resolve({ code: 200, message: 'Succesfully deleted data ' + params.schema, result: result });
                         }
                     });
