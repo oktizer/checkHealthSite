@@ -10,6 +10,7 @@ services:
     environment:
       - MONGO_URL=mongodb://mongodb:27017/${MONGO_DB}
     env_file:
+      - configuration
       - ../environment_variables.env
   mongodb:
     image: "mongo"

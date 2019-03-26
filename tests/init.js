@@ -1,6 +1,6 @@
 describe('Initiate application', function () {
     it('Setup controllers, services and express server as global variables', function (done) {
-        // require('dotenv').load();
+        require('dotenv').load();
         // mute logger
         console.time = function () { };
         console.timeEnd = function () { };

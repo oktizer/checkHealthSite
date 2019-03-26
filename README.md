@@ -4,51 +4,37 @@
 
 ### How do I get set up? ###
 
-* Install Node.js v8.6.0
+* This app running on docker container environment for easy installation and integration, you must install Docker and Docker compose module before.
 
-* Install npm v5.3.0
+* Docker Installation
+
+    - [Docker Installation(Ubuntu)](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
     
-* Install project dependencies:
+    - [Docker Compose Installation](https://docs.docker.com/compose/install/)
     
-    - Install all dependencies defined in package.json:
+* Open '/build' directory, and execute shell file :
     
-        `npm install`
+        `./build.sh`
     
-* Setup environment variables
+* if executing shell file failed, change permission every shell file on 'build' directory, with
 
-    This project uses [dotenv](https://www.npmjs.com/package/dotenv), please configure the proper environment variables before running this application.
+        `chmod +x build.sh`
+        `chmod +x up.sh`
+    and execute again.
     
-    - Copy the `.sample-env` file and rename it to `.env`
-    - Edit all sample fields with the correct environment variables for the application server
 
-* How to run tests:
+* Wait for a minute, until process completed
 
-    `npm test`
+* Docker compose will automatically running Install NPM package, install and running mongodb, API automated testing, delete old container, and running new container
 
-* Deployment instructions
+* Make sure container running smooth and normal with checking docker container logs using command:
 
-    `npm start` or `node index.js`    
+        `docker ps (for checking Container ID)`
+        `docker logs [Container ID]`
+        
+ 
 
-### Contribution guidelines ###
+Rizki Novrizal 2019
 
-* Writing tests:
+rizkinovrizal@gmail.com
 
-    This project use [Mocha](http://mochajs.org/) as the testing environment, and [Chai](http://chaijs.com/) as the assertion library.
-    This project also provide code coverage using [Istanbul](https://www.npmjs.com/package/istanbul).
-    Code coverage report can be viewed in `coverage/lcov-report/index.html` after running test.
-    All test files should be located under the `tests` directory.
-
-* Writing code:
-
-    Please fork this repository first for starting a contribution. This project use ESLint as Javascript lint library.
-    
-    - To run ESlint, type `node node_modules/.bin/eslint .`
-    - Fixing code errors, just type `node node_modules/.bin/eslint . --fix`
-    
-* Code review:
-
-    Please create merge request for every contributions and assign to project's administrator.
-
-### Who do I talk to? ###
-
-&copy;[PT GITS Indonesia](https://gits.co.id) 2017
