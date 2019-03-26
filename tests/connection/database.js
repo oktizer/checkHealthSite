@@ -3,9 +3,9 @@ let mongoose = require('mongoose');
 
 describe('Database connectivity', function () {
     before('load environments', function () {
-        // if (process.env.NODE_ENV !== 'production') {
-        //     require('dotenv').config();
-        // }
+        if (process.env.NODE_ENV !== 'production') {
+            require('dotenv').config();
+        }
         // require('dotenv').load();
     });
 
