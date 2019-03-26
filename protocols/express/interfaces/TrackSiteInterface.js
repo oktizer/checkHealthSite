@@ -2,12 +2,11 @@
  * Created by rizkinovrizal on 17/08/17.
  */
 
-'use strict';
 
-module.exports = function (TOOLS, MODULES, CONSTANTS) {
-    let crudController = TOOLS.CONTROLLERS.CRUDController;
-    let joi = MODULES.JOI;
-    let axios = MODULES.AXIOS;
+module.exports = function (TOOLS, MODULES) {
+    const crudController = TOOLS.CONTROLLERS.CRUDController;
+    const joi = MODULES.JOI;
+    const axios = MODULES.AXIOS;
 
     return {
         /**
@@ -20,7 +19,7 @@ module.exports = function (TOOLS, MODULES, CONSTANTS) {
 
         getListURLSite: async function (previousData, req, res, next) {
             try {
-                let result = await crudController.crudCheckController({value: null, method: 'GET', schema: 'Site'});
+                const result = await crudController.crudCheckController({value: null, method: 'GET', select: '-_id url status', schema: 'Site'});
                 next(null, {listUrl: result.result});
             } catch (err) {
                 return next(err, null);
@@ -55,7 +54,7 @@ module.exports = function (TOOLS, MODULES, CONSTANTS) {
          */
 
         checkSiteStatus: async (previousData, req, res, next) => {
-            let schema = joi.object().keys({
+            const schema = joi.object().keys({
                 url: joi.string().uri()
             });
             let value;
@@ -64,7 +63,7 @@ module.exports = function (TOOLS, MODULES, CONSTANTS) {
             } catch (err) {
                 return (err, null);
             }
-            let siteObj = {url: value.url};
+            const siteObj = {url: value.url};
             try {
                 axios.defaults.timeout = 800;
                 await axios.get(value.url);
@@ -78,7 +77,7 @@ module.exports = function (TOOLS, MODULES, CONSTANTS) {
 
         updateAndGetSite: async (previousData, req, res, next) => {
             try {
-                let resultList = await crudController.updateAndGetSiteController(previousData.listUrl);
+                const resultList = await crudController.updateAndGetSiteController(previousData.listUrl);
                 next(null, resultList);
             } catch (err) {
                 return next(err, null);
@@ -87,7 +86,7 @@ module.exports = function (TOOLS, MODULES, CONSTANTS) {
 
         deleteSite: async (previousData, req, res, next) => {
             try {
-                let resultDelete = await crudController.crudCheckController({where: req.body, method: req.method, schema: 'Site'});
+                const resultDelete = await crudController.crudCheckController({where: req.body, method: req.method, schema: 'Site'});
                 next(null, resultDelete);
             } catch (err) {
                 return next(err, null);
