@@ -19,7 +19,7 @@ module.exports = function (TOOLS, MODULES) {
 
         getListURLSite: async function (previousData, req, res, next) {
             try {
-                const result = await crudController.crudCheckController({value: null, method: 'GET', select: '-_id url status', schema: 'Site'});
+                const result = await crudController.crudCheckController({value: null, method: 'GET', select: 'url status', schema: 'Site'});
                 next(null, {listUrl: result.result});
             } catch (err) {
                 return next(err, null);
