@@ -29,7 +29,8 @@ module.exports = [
         fileField: null,
         fileObjArray: 'none',
         handlers: [
-            'TrackSiteInterface.deleteSite'
+            'TrackSiteInterface.deleteSite',
+            'TrackSiteInterface.getListURLSite'
         ]
     }
 ];

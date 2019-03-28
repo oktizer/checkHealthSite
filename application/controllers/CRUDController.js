@@ -57,7 +57,7 @@ module.exports = function (TOOLS, MODULES, CONSTANTS) {
                     });
                     break;
                 case 'DELETE':
-                    crudService.findOneCustomAndDelete(params.schema, params.value, (err, result) => {
+                    crudService.findOneCustomAndDelete(params.schema, params.where, (err, result) => {
                         let resultData;
                         if (err) {
                             resultData = {code: 500, status: 'Failed', message: 'Failed delete data ' + params.schema, err: err.message};
@@ -66,7 +66,7 @@ module.exports = function (TOOLS, MODULES, CONSTANTS) {
                         } else {
                             resultData = { code: 200, message: 'Succesfully deleted data ' + params.schema };
 
-                            resolve({ code: 200, message: 'Succesfully deleted data ' + params.schema, result: result });
+                            resolve({ code: 200, message: 'Succesfully deleted data ' + params.schema });
                         }
                     });
                     break;

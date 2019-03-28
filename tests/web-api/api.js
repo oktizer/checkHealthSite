@@ -46,7 +46,7 @@ describe('API Endpoints ', function () {
                 } else {
                     response.should.have.status(200);
                     response.should.be.an('object');
-                    response.should.have.message('Succesfully deleted data Site');
+                    response.body.message.should.equal('Succesfully deleted data Site');
                     done();
                 }
             });

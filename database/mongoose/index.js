@@ -8,6 +8,7 @@ module.exports = function (MODULES) {
     let schema = {};
 
     mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true});
+    console.info(process.env.MONGO_URL);
 
     fs.readdirSync(__dirname).filter(function (file) {
         return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
