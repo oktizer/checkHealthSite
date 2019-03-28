@@ -61,7 +61,7 @@ module.exports = function (TOOLS, MODULES) {
             try {
                 value = await crudController.validateInputParams(schema, req.body);
             } catch (err) {
-                return (err, null);
+                return next({code: 403, status: 'Failed', message: 'URI format not valid'}, null);
             }
             const siteObj = {url: value.url};
             try {
